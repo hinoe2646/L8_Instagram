@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		F8807A0422A7633500126D7B /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8807A0322A7633500126D7B /* ImageSelectViewController.swift */; };
 		F8807A0622A7634400126D7B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8807A0522A7634400126D7B /* PostViewController.swift */; };
 		F8807A0822A7635700126D7B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8807A0722A7635700126D7B /* SettingViewController.swift */; };
+		F8807A0A22A77B8E00126D7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8807A0922A77B8E00126D7B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F8807A0322A7633500126D7B /* ImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewController.swift; sourceTree = "<group>"; };
 		F8807A0522A7634400126D7B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F8807A0722A7635700126D7B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F8807A0922A77B8E00126D7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				3BABBD4DDBB1C696654CB7FF /* Pods-Instagram.debug.xcconfig */,
 				06E8B4E1FCBF7854DAE1FD9C /* Pods-Instagram.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -95,6 +96,7 @@
 				F88079F422A7625000126D7B /* Assets.xcassets */,
 				F88079F622A7625000126D7B /* LaunchScreen.storyboard */,
 				F88079F922A7625000126D7B /* Info.plist */,
+				F8807A0922A77B8E00126D7B /* GoogleService-Info.plist */,
 				F88079FF22A7631300126D7B /* LoginViewController.swift */,
 				F8807A0122A7632500126D7B /* HomeViewController.swift */,
 				F8807A0322A7633500126D7B /* ImageSelectViewController.swift */,
@@ -165,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88079F822A7625000126D7B /* LaunchScreen.storyboard in Resources */,
+				F8807A0A22A77B8E00126D7B /* GoogleService-Info.plist in Resources */,
 				F88079F522A7625000126D7B /* Assets.xcassets in Resources */,
 				F88079F322A7624B00126D7B /* Main.storyboard in Resources */,
 			);

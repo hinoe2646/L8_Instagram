@@ -23,6 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="105" y="92"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="SXq-LP-DX1">
@@ -31,13 +32,79 @@
                     <view key="view" contentMode="scaleToFill" id="Msg-FR-2QZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFJ-QZ-4sd">
+                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="L3V-df-QEx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlU-4R-5cp">
+                                <rect key="frame" x="37.5" y="140" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="pqN-dY-mDk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZX-9T-wKK">
+                                <rect key="frame" x="37.5" y="180" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="QUk-65-RmP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0k-iG-elQ">
+                                <rect key="frame" x="37.5" y="220" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="mZF-Tq-rqb"/>
+                                </constraints>
+                                <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="14L-ST-zri" eventType="touchUpInside" id="KJg-tW-fal"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXC-f9-gan">
+                                <rect key="frame" x="37.5" y="270" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="FUK-gD-c8W"/>
+                                </constraints>
+                                <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAccountButton:" destination="14L-ST-zri" eventType="touchUpInside" id="D2i-gl-Uio"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kFJ-QZ-4sd" firstAttribute="centerX" secondItem="Msg-FR-2QZ" secondAttribute="centerX" id="059-8G-spf"/>
+                            <constraint firstItem="L0k-iG-elQ" firstAttribute="top" secondItem="nZX-9T-wKK" secondAttribute="bottom" constant="10" id="4pB-k1-dVk"/>
+                            <constraint firstItem="L0k-iG-elQ" firstAttribute="centerX" secondItem="Msg-FR-2QZ" secondAttribute="centerX" id="EWm-Rs-Znj"/>
+                            <constraint firstItem="kFJ-QZ-4sd" firstAttribute="top" secondItem="Scf-QA-nBX" secondAttribute="top" constant="80" id="Gbn-j9-zOk"/>
+                            <constraint firstItem="gXC-f9-gan" firstAttribute="top" secondItem="L0k-iG-elQ" secondAttribute="bottom" constant="10" id="Kro-Kh-YVg"/>
+                            <constraint firstItem="RlU-4R-5cp" firstAttribute="centerX" secondItem="Msg-FR-2QZ" secondAttribute="centerX" id="LbO-bM-kaP"/>
+                            <constraint firstItem="nZX-9T-wKK" firstAttribute="centerX" secondItem="Msg-FR-2QZ" secondAttribute="centerX" id="dAv-7v-xoY"/>
+                            <constraint firstItem="gXC-f9-gan" firstAttribute="centerX" secondItem="Msg-FR-2QZ" secondAttribute="centerX" id="dhr-J8-0kb"/>
+                            <constraint firstItem="nZX-9T-wKK" firstAttribute="top" secondItem="RlU-4R-5cp" secondAttribute="bottom" constant="10" id="jsc-Ds-Q3x"/>
+                            <constraint firstItem="RlU-4R-5cp" firstAttribute="top" secondItem="kFJ-QZ-4sd" secondAttribute="bottom" constant="10" id="qvx-6u-WXC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Scf-QA-nBX"/>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="nZX-9T-wKK" id="xoy-NW-GQY"/>
+                        <outlet property="mailAddressTextField" destination="kFJ-QZ-4sd" id="kLP-cs-rbW"/>
+                        <outlet property="passwordTextField" destination="RlU-4R-5cp" id="TCm-64-FPc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3La-fO-Psx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="124"/>
+            <point key="canvasLocation" x="854" y="91"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="VhB-8U-rYp">
@@ -76,9 +143,51 @@
                     <view key="view" contentMode="scaleToFill" id="jdD-dU-zCY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hc-cD-DUB">
+                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="q9m-St-NJk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5If-3z-I8n">
+                                <rect key="frame" x="37.5" y="140" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="tds-eP-mLl"/>
+                                </constraints>
+                                <state key="normal" title="表示名を変更" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleChangeButton:" destination="sMe-Xu-lyi" eventType="touchUpInside" id="0yg-ib-3AV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-Ln-Uz6">
+                                <rect key="frame" x="37.5" y="190" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="eAe-km-bV4"/>
+                                </constraints>
+                                <state key="normal" title="ログアウト" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLogoutButton:" destination="sMe-Xu-lyi" eventType="touchUpInside" id="Cg7-eQ-EP4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5If-3z-I8n" firstAttribute="centerX" secondItem="jdD-dU-zCY" secondAttribute="centerX" id="1cO-he-8Md"/>
+                            <constraint firstItem="5If-3z-I8n" firstAttribute="top" secondItem="9hc-cD-DUB" secondAttribute="bottom" constant="10" id="ADQ-Ue-5ky"/>
+                            <constraint firstItem="2aT-Ln-Uz6" firstAttribute="top" secondItem="5If-3z-I8n" secondAttribute="bottom" constant="10" id="Dmt-58-lZP"/>
+                            <constraint firstItem="2aT-Ln-Uz6" firstAttribute="centerX" secondItem="jdD-dU-zCY" secondAttribute="centerX" id="MBM-YP-W2C"/>
+                            <constraint firstItem="9hc-cD-DUB" firstAttribute="top" secondItem="nKN-ZR-gtZ" secondAttribute="top" constant="80" id="h8b-kN-ve7"/>
+                            <constraint firstItem="9hc-cD-DUB" firstAttribute="centerX" secondItem="jdD-dU-zCY" secondAttribute="centerX" id="ybc-Qy-aoA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nKN-ZR-gtZ"/>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="9hc-cD-DUB" id="P3D-El-wGl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3l-wj-HSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,4 +209,7 @@
             <point key="canvasLocation" x="1582" y="826"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="300" height="40"/>
+    </resources>
 </document>
