@@ -113,9 +113,24 @@
                     <view key="view" contentMode="scaleToFill" id="WIx-UK-llg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="blw-Bn-7Gs">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="blw-Bn-7Gs" firstAttribute="top" secondItem="42i-LS-9f0" secondAttribute="top" id="74y-y0-Ycl"/>
+                            <constraint firstItem="42i-LS-9f0" firstAttribute="bottom" secondItem="blw-Bn-7Gs" secondAttribute="bottom" id="BQK-Cc-GMA"/>
+                            <constraint firstItem="42i-LS-9f0" firstAttribute="trailing" secondItem="blw-Bn-7Gs" secondAttribute="trailing" id="pEO-Ak-Dbq"/>
+                            <constraint firstItem="blw-Bn-7Gs" firstAttribute="leading" secondItem="42i-LS-9f0" secondAttribute="leading" id="pwn-tQ-XqY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="42i-LS-9f0"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="blw-Bn-7Gs" id="M10-uX-Sjo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfT-49-h6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,9 +255,59 @@
                     <view key="view" contentMode="scaleToFill" id="fjL-g1-QYp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZeI-ax-wZ5">
+                                <rect key="frame" x="10" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="HfR-hT-iPB"/>
+                                    <constraint firstAttribute="width" constant="120" id="IjE-zt-el5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck3-pR-doc">
+                                <rect key="frame" x="37.5" y="180" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="pWW-s2-7cH"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="VDe-YB-ddP" eventType="touchUpInside" id="NrO-DA-YLU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5M5-Bj-dVb">
+                                <rect key="frame" x="37.5" y="230" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="7xG-bM-GFr"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="VDe-YB-ddP" eventType="touchUpInside" id="ssV-YJ-SU7"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-Di-iIO">
+                                <rect key="frame" x="140" y="130" width="225" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ck3-pR-doc" firstAttribute="top" secondItem="ZeI-ax-wZ5" secondAttribute="bottom" constant="20" id="EUe-MK-wwe"/>
+                            <constraint firstItem="5M5-Bj-dVb" firstAttribute="top" secondItem="Ck3-pR-doc" secondAttribute="bottom" constant="10" id="JZk-im-hS8"/>
+                            <constraint firstItem="ZeI-ax-wZ5" firstAttribute="top" secondItem="5AU-0d-O3s" secondAttribute="top" constant="20" id="Kbu-5Z-cy3"/>
+                            <constraint firstItem="ZeI-ax-wZ5" firstAttribute="leading" secondItem="5AU-0d-O3s" secondAttribute="leading" constant="10" id="LrN-Ov-41R"/>
+                            <constraint firstItem="5AU-0d-O3s" firstAttribute="trailing" secondItem="4kY-Di-iIO" secondAttribute="trailing" constant="10" id="Zwr-3i-qMV"/>
+                            <constraint firstItem="4kY-Di-iIO" firstAttribute="leading" secondItem="ZeI-ax-wZ5" secondAttribute="trailing" constant="10" id="d1J-rJ-4MY"/>
+                            <constraint firstItem="4kY-Di-iIO" firstAttribute="bottom" secondItem="ZeI-ax-wZ5" secondAttribute="bottom" id="gso-EJ-N1Z"/>
+                            <constraint firstItem="Ck3-pR-doc" firstAttribute="centerX" secondItem="fjL-g1-QYp" secondAttribute="centerX" id="kQM-H7-not"/>
+                            <constraint firstItem="5M5-Bj-dVb" firstAttribute="centerX" secondItem="fjL-g1-QYp" secondAttribute="centerX" id="qe3-Ox-P7N"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5AU-0d-O3s"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZeI-ax-wZ5" id="f8Y-Mv-zLf"/>
+                        <outlet property="textField" destination="4kY-Di-iIO" id="vKR-08-2CG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWe-ME-jSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
