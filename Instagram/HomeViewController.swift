@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // 要素が追加されたらpostArrayに追加してTableViewを再表示する
                 let postsRef = Database.database().reference().child(Const.PostPath)
                 postsRef.observe(.childAdded, with: { snapshot in
-                    print("DEBUG_PRINT: .chidAddedイベントが発生しました。")
+                    print("DEBUG_PRINT: .childAddedイベントが発生しました。")
                     
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = Auth.auth().currentUser?.uid {
@@ -117,7 +117,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPodtData(postArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        cell.likeButton.addTarget(self, action:#selector(handleLikeButton(_:forEvent:)), for: .touchUpInside)
+        
+        cell.commentButton.addTarget(self, action:#selector(handleCommentButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
     }
@@ -125,15 +127,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
-        
+
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-        
+
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
-        
+
         // Firebaseに保存するデータの準備
         if let uid = Auth.auth().currentUser?.uid {
             if postData.isLiked {
@@ -150,13 +152,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else {
                 postData.likes.append(uid)
             }
-            
+
             // 増えたlikesをFirebaseに保存する
             let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
             let likes = ["likes": postData.likes]
             postRef.updateChildValues(likes)
-            
+
         }
+    }
+    
+    
+    @objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: コメントボタンがタップされました。")
+//        //タップされたセルのインデックスを求める
+//        let touch = event.allTouches?.first
+//        let point = touch!.location(in: self.tableView)
+//        let indexPath = tableView.indexPathForRow(at: point)
+
+//        // 配列からタップされたインデックスのデータを取り出す
+//        let postData = postArray[indexPath!.row]
+        // 投稿の画面を開く
+        let CommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
+        self.present(CommentViewController!, animated: true, completion: nil)
     }
     
 }

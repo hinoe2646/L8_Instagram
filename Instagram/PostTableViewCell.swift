@@ -11,10 +11,13 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
+    
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +33,21 @@ class PostTableViewCell: UITableViewCell {
     func setPodtData(_ postData: PostData) {
         self.postImageView.image = postData.image
         
-        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        if postData.caption == "" {
+            self.captionLabel.text = "\(postData.name!)さんの投稿です。"
+//            self.captionLabel.isHidden = true
+//            self.captionLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        } else {
+            self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        }
+        
+        if postData.comment == "" {
+            self.commentLabel.isHidden = true
+            self.commentLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        } else {
+            self.commentLabel.text = "\(postData.name!) : \(postData.comment!)"
+        }
+            
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
@@ -47,4 +64,5 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
     }
+    
 }

@@ -15,12 +15,11 @@ import SVProgressHUD
 class SettingViewController: UIViewController {
     @IBOutlet weak var displayNameTextField: UITextField!
     
-    
-    // 表示名変更ボタンとをタップしたときに呼ばれるメソッド
+    // 表示名変更ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleChangeButton(_ sender: Any) {
         if let displayName = displayNameTextField.text {
             
-            // 表示名が入力されていない時はHUDを出して兄もしない
+            // 表示名が入力されていない時はHUDを出して何もしない
             if displayName.isEmpty {
                 SVProgressHUD.showError(withStatus: "表示名を入力して下さい")
                 return
