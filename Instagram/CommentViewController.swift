@@ -13,38 +13,32 @@ import SVProgressHUD
 
 class CommentViewController: UIViewController {
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var commentTextField: UITextField!
     
     // コメントの投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleCommentButton(_ sender: Any) {
-        if let commentText = textField.text {
-            // 表示名が入力されていない時はHUDを出して何もしない
-            if commentText.isEmpty {
-                SVProgressHUD.showError(withStatus: "コメントを入力して下さい")
+        if let nameText = nameTextField.text, let commentText = commentTextField.text {
+            // どちらも入力されていない時はHUDを出して何もしない
+            if nameText.isEmpty || commentText.isEmpty {
+                SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
                 return
             }
             
-        // postDataに必要な情報を取得しておく
-        let name = Auth.auth().currentUser?.displayName
-            
-        // タップされたセルのインデックスを求める
-        let touch = event.allTouches?.first
-        let point = touch!.location(in: self.tableView)
-        let indexPath = tableView.indexPathForRow(at: point)
-        
-        // 配列からタップされたインデックスのデータを取り出す
-        let postData = postArray[indexPath!.row]
-        
-        // 辞書を作成してFirebaseに保存する
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-        let comments = ["comment": textField.text!, "name": name!]
-        postRef.updateChildValues(comments)
-        
+//        // postDataに必要な情報を取得しておく
+//        let name = Auth.auth().currentUser?.displayName
+//
+//
+//        // 辞書を作成してFirebaseに保存する
+//        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+//        let comments = ["comment": textField.text!, "name": name!]
+//        postRef.updateChildValues(comments)
+//
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました")
         
-        // 全てのモーダルを閉じる
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+        // 画面を閉じる
+        dismiss(animated: true, completion: nil)
         }
     }
 
@@ -54,10 +48,14 @@ class CommentViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // Do any additional setup after loading the view.
+        // 表示名を取得してTextFieldに設定する
+        let user = Auth.auth().currentUser
+        if let user = user {
+            nameTextField.text = user.displayName
+        }
     }
     
 }

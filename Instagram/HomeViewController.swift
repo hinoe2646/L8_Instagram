@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // セル内のボタンがタップされた時に呼ばれるメソッド
-    @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
+    @objc func handleLikeButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
 
         // タップされたセルのインデックスを求める
@@ -164,13 +164,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: コメントボタンがタップされました。")
-//        //タップされたセルのインデックスを求める
+        
+//        // タップされたセルのインデックスを求める
 //        let touch = event.allTouches?.first
 //        let point = touch!.location(in: self.tableView)
 //        let indexPath = tableView.indexPathForRow(at: point)
-
+//        
 //        // 配列からタップされたインデックスのデータを取り出す
 //        let postData = postArray[indexPath!.row]
+
         // 投稿の画面を開く
         let CommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
         self.present(CommentViewController!, animated: true, completion: nil)

@@ -256,18 +256,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="投稿者名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-h9-6zp">
+                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="PDt-rj-zKr"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKR-4o-8Ed">
-                                <rect key="frame" x="37.5" y="140" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="5me-Lf-W1R"/>
                                 </constraints>
-                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <state key="normal" title="コメントを投稿" backgroundImage="btn"/>
                                 <connections>
                                     <action selector="handleCommentButton:" destination="rdD-e0-deq" eventType="touchUpInside" id="ImW-k3-nf0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-Rl-BJa">
-                                <rect key="frame" x="37.5" y="190" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="230" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bi2-gM-CaG"/>
                                 </constraints>
@@ -277,7 +286,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rjc-a8-qSL">
-                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="140" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Tyy-H6-xgT"/>
                                 </constraints>
@@ -289,16 +298,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AKR-4o-8Ed" firstAttribute="centerX" secondItem="EGT-AZ-dWT" secondAttribute="centerX" id="1Kw-WO-OgO"/>
-                            <constraint firstItem="Rjc-a8-qSL" firstAttribute="top" secondItem="ulZ-cR-ilh" secondAttribute="top" constant="80" id="W5Z-5E-wus"/>
+                            <constraint firstItem="Rjc-a8-qSL" firstAttribute="top" secondItem="0qL-h9-6zp" secondAttribute="bottom" constant="10" id="Gb4-kg-2YT"/>
+                            <constraint firstItem="0qL-h9-6zp" firstAttribute="top" secondItem="ulZ-cR-ilh" secondAttribute="top" constant="80" id="OeP-2x-mbf"/>
                             <constraint firstItem="Rjc-a8-qSL" firstAttribute="centerX" secondItem="EGT-AZ-dWT" secondAttribute="centerX" id="Yje-gk-c08"/>
-                            <constraint firstItem="AKR-4o-8Ed" firstAttribute="top" secondItem="Rjc-a8-qSL" secondAttribute="bottom" constant="10" id="ZJ3-Vc-Jr9"/>
-                            <constraint firstItem="mHb-Rl-BJa" firstAttribute="top" secondItem="AKR-4o-8Ed" secondAttribute="bottom" constant="10" id="aRr-NV-2Yv"/>
+                            <constraint firstItem="0qL-h9-6zp" firstAttribute="centerX" secondItem="EGT-AZ-dWT" secondAttribute="centerX" id="cTo-rl-E8V"/>
                             <constraint firstItem="mHb-Rl-BJa" firstAttribute="centerX" secondItem="EGT-AZ-dWT" secondAttribute="centerX" id="uCV-kq-grG"/>
+                            <constraint firstItem="mHb-Rl-BJa" firstAttribute="top" secondItem="AKR-4o-8Ed" secondAttribute="bottom" constant="10" id="vRo-yy-nKt"/>
+                            <constraint firstItem="AKR-4o-8Ed" firstAttribute="top" secondItem="Rjc-a8-qSL" secondAttribute="bottom" constant="10" id="xrN-2Q-70W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ulZ-cR-ilh"/>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="Rjc-a8-qSL" id="chO-MN-B8O"/>
+                        <outlet property="commentTextField" destination="Rjc-a8-qSL" id="q2x-bm-far"/>
+                        <outlet property="nameTextField" destination="0qL-h9-6zp" id="DSc-xp-rg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVu-4q-XYn" userLabel="First Responder" sceneMemberID="firstResponder"/>

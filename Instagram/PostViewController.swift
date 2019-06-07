@@ -30,7 +30,7 @@ class PostViewController: UIViewController {
         
         // 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!, "comment":""]
+        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!, "comment": ""]
         postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する
