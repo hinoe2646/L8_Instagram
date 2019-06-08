@@ -38,10 +38,10 @@ class PostTableViewCell: UITableViewCell {
             self.captionLabel.text = "\(postData.name!): \(postData.caption!)"
         }
         
-        if postData.comment == nil {
+        if postData.comment == nil || postData.commentUser == nil {
             self.commentLabel.text = "まだコメントはありません"
         } else {
-            self.commentLabel.text = "\(postData.name!): \(postData.comment!)"
+            self.commentLabel.text = "\(postData.commentUser!): \(postData.comment!)"
         }
         
         let likeNumber = postData.likes.count

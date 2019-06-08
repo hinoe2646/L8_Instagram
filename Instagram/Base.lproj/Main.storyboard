@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-gp-jcG">
-                                <rect key="frame" x="37.5" y="131" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="130" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="IQy-bG-63w"/>
                                 </constraints>
@@ -125,18 +125,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhB-fe-2pW">
-                                <rect key="frame" x="37.5" y="181" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="7ux-Rh-WaE"/>
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="vVN-Mn-nWH" eventType="touchUpInside" id="Pma-ic-Nqk"/>
-                                    <segue destination="59c-zO-cSm" kind="unwind" unwindAction="unwind:" id="4Gw-BQ-Mvn"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H3g-Lh-mwa">
-                                <rect key="frame" x="37.5" y="91" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="90" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="WEb-XO-5Ao"/>
                                 </constraints>
@@ -144,10 +143,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIa-iL-ag3">
-                                <rect key="frame" x="37.5" y="50" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIa-iL-ag3">
+                                <rect key="frame" x="37.5" y="50" width="300" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="3Of-ZK-WhE"/>
+                                    <constraint firstAttribute="height" constant="20" id="Vtb-Gw-w4i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -173,7 +173,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCO-TK-dZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="59c-zO-cSm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-724" y="834.33283358320841"/>
         </scene>

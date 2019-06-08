@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
+//import FirebaseAuth
 import SVProgressHUD
 
 class CommentPostViewController: UIViewController {
@@ -16,20 +16,31 @@ class CommentPostViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var commentText: UITextField!
     
-    // prepareで受け取ったidが入った引数を書く
     var postDataSegue: PostData!
     
     @IBAction func postButton(_ sender: Any) {
         
         let postData = postDataSegue
         
+        if let commentText = commentText.text {
+            // 入力されていない時はHUDを出して何もしない
+            if commentText.isEmpty {
+            SVProgressHUD.showError(withStatus: "コメントを入力して下さい")
+            return
+            }
+        }
+        
+        // 投稿者名を保存する
+        let userName = Auth.auth().currentUser?.displayName
+        let user = ["commentUser": userName]
+        let nameRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
+        nameRef.updateChildValues(user as [AnyHashable : Any])
+            
         // コメントをFirebaseに保存する
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+        let postRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
         let comment = ["comment": commentText.text]
-//        postRef.updateChildValues(comment)
-        print("DEBUG_PRINT: \(postRef)")
-        print("DEBUG_PRINT: \(comment)")
-        print("DEBUG_PRINT: コメントを追加しました。")
+        postRef.updateChildValues(comment as [AnyHashable : Any])
+        SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました。")
         dismiss(animated: true, completion: nil)
     }
     
@@ -46,14 +57,7 @@ class CommentPostViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        // 表示名を取得してTextFieldに設定する
-        let user = Auth.auth().currentUser
-        if let user = user {
-            userNameLabel.text = user.displayName
-            
-//        print("DEBUG_PRINT: \(postDataSegue)")
-        }
+        userNameLabel.text = "\(postDataSegue.name!)さんの投稿にコメントする。"
     }
     
 }

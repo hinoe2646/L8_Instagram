@@ -175,10 +175,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // 配列からタップされたインデックスのデータを取り出す
 //        let cellPointPath = postArray[indexPath!.row]
-        
+//
 //        postDataSegue = cellPointPath
+        
         postDataSegue = postArray[indexPath!.row]
-//        print("持っていきたい値、\(postDataSegue)")
         
         performSegue(withIdentifier: "commentSegue",sender: nil)
     }
@@ -188,14 +188,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "commentSegue" {
             commentPostViewController.postDataSegue = postDataSegue
         }
-    }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "commentSegue",sender: nil)
-//    }
- 
-    
-    @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
 
 }
