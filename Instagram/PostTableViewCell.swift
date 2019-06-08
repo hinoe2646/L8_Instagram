@@ -11,7 +11,6 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
-    
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
@@ -30,27 +29,24 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setPodtData(_ postData: PostData) {
+    func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
         
         if postData.caption == "" {
             self.captionLabel.text = "\(postData.name!)さんの投稿です。"
-//            self.captionLabel.isHidden = true
-//            self.captionLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
         } else {
-            self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+            self.captionLabel.text = "\(postData.name!): \(postData.caption!)"
         }
         
-        if postData.comment == "" {
-            self.commentLabel.isHidden = true
-            self.commentLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        if postData.comment == nil {
+            self.commentLabel.text = "まだコメントはありません"
         } else {
-            self.commentLabel.text = "\(postData.name!) : \(postData.comment!)"
+            self.commentLabel.text = "\(postData.name!): \(postData.comment!)"
         }
-            
+        
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
-        
+    
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = formatter.string(from: postData.date!)

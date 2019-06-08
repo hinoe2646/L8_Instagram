@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="640" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="434" height="640"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="613" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="613"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="639.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="612.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKm-4c-MOY">
@@ -49,23 +49,23 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRY-eW-xek">
-                        <rect key="frame" x="80" y="444.5" width="80" height="28"/>
+                        <rect key="frame" x="80" y="444.5" width="80" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="コメントする">
                             <color key="titleColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaM-kG-6pV">
-                        <rect key="frame" x="30" y="534" width="374" height="85"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaM-kG-6pV">
+                        <rect key="frame" x="30" y="542" width="374" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="lQT-RX-CUt"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-tY-Uic">
-                        <rect key="frame" x="30" y="474" width="374" height="50"/>
+                        <rect key="frame" x="30" y="482" width="374" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="m7a-xT-Bhr"/>
                         </constraints>
@@ -76,13 +76,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="q75-wf-zZT" firstAttribute="centerY" secondItem="kKm-4c-MOY" secondAttribute="centerY" id="2Ca-b2-TN4"/>
-                    <constraint firstItem="oaM-kG-6pV" firstAttribute="top" secondItem="CM2-tY-Uic" secondAttribute="bottom" constant="10" id="2ah-KU-WD1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CM2-tY-Uic" secondAttribute="trailing" constant="10" id="5Gg-TT-Ws5"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oaM-kG-6pV" secondAttribute="bottom" constant="10" id="6hV-jJ-3GI"/>
                     <constraint firstItem="q75-wf-zZT" firstAttribute="leading" secondItem="UVe-Ox-0eR" secondAttribute="trailing" constant="10" id="AHZ-Pb-VL4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="q75-wf-zZT" secondAttribute="trailing" constant="10" id="CDv-jX-yRL"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="oaM-kG-6pV" secondAttribute="bottom" constant="10" id="Kdx-DS-GKd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="EDA-e0-kmc" secondAttribute="trailing" id="PXD-yq-1iK"/>
-                    <constraint firstItem="CM2-tY-Uic" firstAttribute="top" secondItem="kKm-4c-MOY" secondAttribute="bottom" constant="20" id="WuM-Br-pL9"/>
+                    <constraint firstItem="CM2-tY-Uic" firstAttribute="top" secondItem="uRY-eW-xek" secondAttribute="bottom" constant="10" id="UJd-Df-Zpy"/>
+                    <constraint firstItem="oaM-kG-6pV" firstAttribute="top" secondItem="CM2-tY-Uic" secondAttribute="bottom" constant="10" id="Vsw-CG-mKr"/>
                     <constraint firstItem="UVe-Ox-0eR" firstAttribute="leading" secondItem="kKm-4c-MOY" secondAttribute="trailing" constant="10" id="a7D-vI-jh0"/>
                     <constraint firstItem="CM2-tY-Uic" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="bxG-Nl-SKF"/>
                     <constraint firstItem="EDA-e0-kmc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dmW-xa-RJA"/>
@@ -106,7 +106,7 @@
                 <outlet property="likeLabel" destination="UVe-Ox-0eR" id="9ER-lH-uho"/>
                 <outlet property="postImageView" destination="EDA-e0-kmc" id="EU5-Wt-BLA"/>
             </connections>
-            <point key="canvasLocation" x="228.80000000000001" y="414.69265367316348"/>
+            <point key="canvasLocation" x="228.80000000000001" y="402.54872563718146"/>
         </tableViewCell>
     </objects>
     <resources>

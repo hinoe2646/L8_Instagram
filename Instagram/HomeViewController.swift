@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var postArray: [PostData] = []
     
+    var postDataSegue: PostData!
+    
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
     
@@ -30,7 +32,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.allowsSelection = false
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
+        tableView.register(nib, forCellReuseIdentifier: "postCell")
         
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
@@ -46,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if Auth.auth().currentUser != nil {
             if self.observing == false {
                 // 要素が追加されたらpostArrayに追加してTableViewを再表示する
-                let postsRef = Database.database().reference().child(Const.PostPath)
+                 let postsRef = Database.database().reference().child(Const.PostPath)
                 postsRef.observe(.childAdded, with: { snapshot in
                     print("DEBUG_PRINT: .childAddedイベントが発生しました。")
                     
@@ -54,6 +56,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if let uid = Auth.auth().currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         self.postArray.insert(postData, at: 0)
+                        print("snapshot \(self.postArray)")
                         
                         // TableViewを再表示する
                         self.tableView.reloadData()
@@ -113,8 +116,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        cell.setPodtData(postArray[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+        cell.setPostData(postArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleLikeButton(_:forEvent:)), for: .touchUpInside)
@@ -132,10 +135,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-
+        
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
-
+        
         // Firebaseに保存するデータの準備
         if let uid = Auth.auth().currentUser?.uid {
             if postData.isLiked {
@@ -165,17 +168,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: コメントボタンがタップされました。")
         
-//        // タップされたセルのインデックスを求める
-//        let touch = event.allTouches?.first
-//        let point = touch!.location(in: self.tableView)
-//        let indexPath = tableView.indexPathForRow(at: point)
-//        
-//        // 配列からタップされたインデックスのデータを取り出す
-//        let postData = postArray[indexPath!.row]
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+//        let cellPointPath = postArray[indexPath!.row]
+        
+//        postDataSegue = cellPointPath
+        postDataSegue = postArray[indexPath!.row]
+//        print("持っていきたい値、\(postDataSegue)")
+        
+        performSegue(withIdentifier: "commentSegue",sender: nil)
+    }
 
-        // 投稿の画面を開く
-        let CommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
-        self.present(CommentViewController!, animated: true, completion: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
+        if segue.identifier == "commentSegue" {
+            commentPostViewController.postDataSegue = postDataSegue
+        }
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "commentSegue",sender: nil)
+//    }
+ 
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+    }
+
 }

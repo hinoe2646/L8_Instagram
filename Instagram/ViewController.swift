@@ -69,6 +69,5 @@ class ViewController: UIViewController {
             self.present(loginViewController!, animated: true, completion: nil)
         }
     }
- 
-}
 
+}
