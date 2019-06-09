@@ -30,17 +30,22 @@ class CommentPostViewController: UIViewController {
             }
         }
         
-        // 投稿者名を保存する
+//        // 投稿者名を保存する
         let userName = Auth.auth().currentUser?.displayName
-        let user = ["commentUser": userName]
-        let nameRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
-        nameRef.updateChildValues(user as [AnyHashable : Any])
-            
-        // コメントをFirebaseに保存する
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
-        let comment = ["comment": commentText.text]
-        postRef.updateChildValues(comment as [AnyHashable : Any])
-        SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました。")
+//        let user = ["commentUser": userName]
+//        let nameRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
+//        nameRef.updateChildValues(user as [AnyHashable : Any])
+//
+//        // コメントをFirebaseに保存する
+//        let postRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
+//        let comment = ["comment": commentText.text]
+//        postRef.updateChildValues(comment as [AnyHashable : Any])
+//        SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました。")
+        
+        // 投稿者とコメントをコメント一覧として保存する
+        let commentRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
+        let commentDic = ["commentUser": userName,"comments": commentText.text!]
+        commentRef.child("comments").childByAutoId().setValue(commentDic)
         dismiss(animated: true, completion: nil)
     }
     
