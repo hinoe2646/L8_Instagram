@@ -46,6 +46,10 @@ class PostData: NSObject {
             self.likes = likes
         }
         
+        if let comments = valueDictionary["comments"] as? [String] {
+            self.comments = comments
+        }
+        
         for likeID in self.likes {
             if likeID == myId {
                 self.isLiked = true

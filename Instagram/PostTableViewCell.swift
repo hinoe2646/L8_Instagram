@@ -16,7 +16,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +35,6 @@ class PostTableViewCell: UITableViewCell {
             self.captionLabel.text = "\(postData.name!)さんの投稿です。"
         } else {
             self.captionLabel.text = "\(postData.name!): \(postData.caption!)"
-        }
-        
-        if postData.comment == nil || postData.commentUser == nil {
-            self.commentLabel.text = "まだコメントはありません"
-        } else {
-            self.commentLabel.text = "\(postData.commentUser!): \(postData.comment!)"
         }
         
         let likeNumber = postData.likes.count

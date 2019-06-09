@@ -173,11 +173,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         
-        // 配列からタップされたインデックスのデータを取り出す
-//        let cellPointPath = postArray[indexPath!.row]
-//
-//        postDataSegue = cellPointPath
-        
         postDataSegue = postArray[indexPath!.row]
         
         performSegue(withIdentifier: "commentSegue",sender: nil)
