@@ -8,8 +8,7 @@
 
 import UIKit
 import Firebase
-//import FirebaseAuth
-import FirebaseDatabase
+//import FirebaseDatabase
 
 class commentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,7 +16,9 @@ class commentsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var postDataSegue: PostData!
     
-    var commentArray: Array<Any> = []
+    var commentArray: [String] = []
+    
+    private let Sections: NSArray = ["コメント一覧"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +43,22 @@ class commentsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    @IBAction func returnButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print("Count: \(commentArray.count)")
         return commentArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.commentArray = [commentArray[indexPath.row]]
+        cell.textLabel?.text = commentArray[indexPath.row]
         
         return cell
     }
@@ -62,17 +68,13 @@ class commentsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func loadData() {
-        print("データ取得アクセス")
-        
-        // 中身の確認用　"comments"内がすべて表示される　⭕️
-        print("中身の確認: \(postDataSegue.comments)")
-        
         self.commentArray = postDataSegue.comments
-        
-        // 1つずつの表示確認　⭕️
-        for comment in commentArray {
-            print(comment)
-        }
+
+//        // 1つずつの表示確認　⭕️
+//        for comment in commentArray {
+//            print(comment)
+//        }
+//
     }
     
 

@@ -14,7 +14,9 @@ class commentTableViewCell: UITableViewCell {
     
     var postDataSegue: PostData!
     
-    var commentArray: Array<Any> = []
+    var commentArray: Array? = []
+    
+    var commentSet = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +29,16 @@ class commentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadData() {
-            commentLabel.text = "comment data"
+    func commentData() {
+        
+        self.commentArray = postDataSegue.comments
+//
+//        for comment in commentArray {
+//            print(comment)
+//            commentSet = commentSet + "\n" + String(comment)
+//        }
+        
+//        commentLabel?.text = commentArray[indexPath.row]
     }
     
 }

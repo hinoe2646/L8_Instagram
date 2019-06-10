@@ -200,7 +200,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         postDataSegue = postArray[indexPath!.row]
         
-        performSegue(withIdentifier: "commentAll",sender: nil)
+        performSegue(withIdentifier: "allComment",sender: nil)
     }
     
 
@@ -210,10 +210,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
              let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
             commentPostViewController.postDataSegue = postDataSegue
         } else {
-//            let CommentsViewController:commentsViewController = segue.destination as! commentsViewController
-//            CommentsViewController.postDataSegue = postDataSegue
-            let commentAllController:CommentAllViewController = segue.destination as! CommentAllViewController
-            commentAllController.postDataSegue = postDataSegue
+            let CommentsViewController:commentsViewController = segue.destination as! commentsViewController
+            CommentsViewController.postDataSegue = postDataSegue
+//            let commentAllController:CommentAllViewController = segue.destination as! CommentAllViewController
+//            commentAllController.postDataSegue = postDataSegue
 
         }
     }
