@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var postDataSegue: PostData!
     
+    
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
     
@@ -37,7 +38,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
-        // 高さ概算値 = ｢縦横比1:1のUIImageViewの高さ(=画面幅)｣+｢いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)｣
+        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
         tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
     }
     
@@ -110,11 +111,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
@@ -123,8 +126,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:#selector(handleLikeButton(_:forEvent:)), for: .touchUpInside)
         
         cell.commentButton.addTarget(self, action:#selector(handleCommentButton(_:forEvent:)), for: .touchUpInside)
+
+        cell.allCommentButton.addTarget(self, action:#selector(handleAllCommentButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
+        
     }
     
     // セル内のボタンがタップされた時に呼ばれるメソッド
@@ -138,6 +144,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        
+        // 中身の確認用　"comments"内がすべて表示される　⭕️
+        print(postData.comments)
         
         // Firebaseに保存するデータの準備
         if let uid = Auth.auth().currentUser?.uid {
@@ -175,13 +184,37 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         postDataSegue = postArray[indexPath!.row]
         
+        // 中身の確認用　"comments"内がすべて表示される　⭕️
+        print(postDataSegue.comments)
+        
         performSegue(withIdentifier: "commentSegue",sender: nil)
     }
+    
+    @objc func handleAllCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: コメント表示ボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+
+        postDataSegue = postArray[indexPath!.row]
+        
+        performSegue(withIdentifier: "commentAll",sender: nil)
+    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
+   
         if segue.identifier == "commentSegue" {
+             let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
             commentPostViewController.postDataSegue = postDataSegue
+        } else {
+//            let CommentsViewController:commentsViewController = segue.destination as! commentsViewController
+//            CommentsViewController.postDataSegue = postDataSegue
+            let commentAllController:CommentAllViewController = segue.destination as! CommentAllViewController
+            commentAllController.postDataSegue = postDataSegue
+
         }
     }
 

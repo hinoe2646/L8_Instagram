@@ -12,6 +12,10 @@ class commentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var commentLabel: UILabel!
     
+    var postDataSegue: PostData!
+    
+    var commentArray: Array<Any> = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,9 +27,8 @@ class commentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setPostData(_ postData: PostData) {
-        let userName = postData.comments
-        self.commentLabel.text = userName[0]
+    func loadData() {
+            commentLabel.text = "comment data"
     }
     
 }

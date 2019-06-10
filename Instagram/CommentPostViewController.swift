@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-//import FirebaseAuth
 import SVProgressHUD
 
 class CommentPostViewController: UIViewController {
@@ -20,7 +19,10 @@ class CommentPostViewController: UIViewController {
     
     @IBAction func postButton(_ sender: Any) {
         
-        let postData = postDataSegue
+//        let postData = postDataSegue
+        
+        // 中身の確認用　"comments"内がすべて表示される　⭕️
+        print(postDataSegue.comments)
         
         if let commentText = commentText.text {
             // 入力されていない時はHUDを出して何もしない
@@ -30,15 +32,17 @@ class CommentPostViewController: UIViewController {
             }
         }
         
-        // 投稿者とコメントを配列に入れる
+        // 投稿者とコメントの準備
         let userName = Auth.auth().currentUser?.displayName
-        let commentRef = Database.database().reference().child(Const.PostPath).child(postData!.id!)
+        let commentRef = Database.database().reference().child(Const.PostPath).child(postDataSegue.id!)
         let commentSet = "\(userName!): \(commentText.text!)"
         
-        postData?.comments.append(commentSet)
+        // 配列に加える
+        postDataSegue.comments.append(commentSet)
         
-        let comment = ["comments": postData?.comments]
+        let comment = ["comments": postDataSegue.comments]
         commentRef.updateChildValues(comment as [AnyHashable : Any])
+
         SVProgressHUD.showError(withStatus: "コメントを投稿しました。")
         dismiss(animated: true, completion: nil)
     }

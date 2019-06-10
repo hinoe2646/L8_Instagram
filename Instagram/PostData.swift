@@ -16,8 +16,8 @@ class PostData: NSObject {
     var imageString: String?
     var name: String?
     var caption: String?
-    var comment: String?
-    var commentUser: String?
+//    var comment: String?
+//    var commentUser: String?
     var comments: [String] = []
     var date: Date?
     var likes: [String] = []
@@ -28,6 +28,8 @@ class PostData: NSObject {
         
         let valueDictionary = snapshot.value as! [String: Any]
         
+//        let commentDictionary = snapshot.value as? [String: NSArray]
+        
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
         
@@ -35,9 +37,9 @@ class PostData: NSObject {
         
         self.caption = valueDictionary["caption"] as? String
         
-        self.comment = valueDictionary["comment"] as? String
+//        self.comment = valueDictionary["comment"] as? String
         
-        self.commentUser = valueDictionary["commentUser"] as? String
+//        self.commentUser = valueDictionary["commentUser"] as? String
  
         let time = valueDictionary["time"] as? String
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)

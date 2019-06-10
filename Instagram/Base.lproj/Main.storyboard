@@ -176,6 +176,84 @@
             </objects>
             <point key="canvasLocation" x="-724" y="834.33283358320841"/>
         </scene>
+        <!--Comment All View Controller-->
+        <scene sceneID="yKu-0z-Hrr">
+            <objects>
+                <viewController id="3au-qJ-R1y" customClass="CommentAllViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fVC-6g-p6d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-si-Z2y">
+                                <rect key="frame" x="37.5" y="577" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hCx-cK-EGM"/>
+                                </constraints>
+                                <state key="normal" title="戻る" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="returnButton:" destination="3au-qJ-R1y" eventType="touchUpInside" id="U6Q-TZ-vlV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWb-06-ykk">
+                                <rect key="frame" x="40" y="70" width="295" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="eMZ-bk-6z3"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FqZ-2z-byo" firstAttribute="trailing" secondItem="YWb-06-ykk" secondAttribute="trailing" constant="40" id="BxP-SW-sPg"/>
+                            <constraint firstItem="YWb-06-ykk" firstAttribute="leading" secondItem="FqZ-2z-byo" secondAttribute="leading" constant="40" id="DU2-TF-HUY"/>
+                            <constraint firstItem="YWb-06-ykk" firstAttribute="top" secondItem="FqZ-2z-byo" secondAttribute="top" constant="50" id="gKp-ha-X2N"/>
+                            <constraint firstItem="FqZ-2z-byo" firstAttribute="bottom" secondItem="TR1-si-Z2y" secondAttribute="bottom" constant="50" id="lno-8Q-muI"/>
+                            <constraint firstItem="TR1-si-Z2y" firstAttribute="centerX" secondItem="fVC-6g-p6d" secondAttribute="centerX" id="vhH-Yg-RDc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FqZ-2z-byo"/>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="YWb-06-ykk" id="X0A-ug-nks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-Bb-ChJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-724" y="1522.488755622189"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="5Sw-M0-QBS">
+            <objects>
+                <viewController id="CGT-mQ-wNe" customClass="commentsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qh5-TA-vLU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H6B-ZI-qsp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eUr-Sh-RwX"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTableView" destination="H6B-ZI-qsp" id="4m8-dC-2g9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lc4-cY-jK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105" y="2259"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="VhB-8U-rYp">
             <objects>
@@ -201,6 +279,8 @@
                     <connections>
                         <outlet property="tableView" destination="blw-Bn-7Gs" id="M10-uX-Sjo"/>
                         <segue destination="vVN-Mn-nWH" kind="show" identifier="commentSegue" id="pvC-vw-qCT"/>
+                        <segue destination="CGT-mQ-wNe" kind="show" identifier="allComment" id="85q-gc-hWs"/>
+                        <segue destination="3au-qJ-R1y" kind="show" identifier="commentAll" id="cQh-6j-GzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfT-49-h6d" userLabel="First Responder" sceneMemberID="firstResponder"/>

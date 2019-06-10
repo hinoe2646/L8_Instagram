@@ -26,6 +26,8 @@
 		F8807A0A22A77B8E00126D7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8807A0922A77B8E00126D7B /* GoogleService-Info.plist */; };
 		F8EB34FB22ACEFD10032FF42 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB34F922ACEFD10032FF42 /* commentTableViewCell.swift */; };
 		F8EB34FC22ACEFD10032FF42 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8EB34FA22ACEFD10032FF42 /* commentTableViewCell.xib */; };
+		F8EB34FE22AD20FC0032FF42 /* commentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB34FD22AD20FC0032FF42 /* commentsViewController.swift */; };
+		F8EB350022AE060F0032FF42 /* CommentAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB34FF22AE060F0032FF42 /* CommentAllViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		F8807A0922A77B8E00126D7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8EB34F922ACEFD10032FF42 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		F8EB34FA22ACEFD10032FF42 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
+		F8EB34FD22AD20FC0032FF42 /* commentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentsViewController.swift; sourceTree = "<group>"; };
+		F8EB34FF22AE060F0032FF42 /* CommentAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAllViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +124,21 @@
 				F82DF66022A8A27100CB3F65 /* PostData.swift */,
 				F82DF66222A8A77A00CB3F65 /* PostTableViewCell.swift */,
 				F82DF66322A8A77A00CB3F65 /* PostTableViewCell.xib */,
-				F8EB34F922ACEFD10032FF42 /* commentTableViewCell.swift */,
-				F8EB34FA22ACEFD10032FF42 /* commentTableViewCell.xib */,
 				F84A4ADF22AB3C28000714D0 /* CommentPostViewController.swift */,
+				F8EB34FF22AE060F0032FF42 /* CommentAllViewController.swift */,
+				F8EB350122AE12600032FF42 /* comment.Cell */,
 			);
 			path = Instagram;
+			sourceTree = "<group>";
+		};
+		F8EB350122AE12600032FF42 /* comment.Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F8EB34FD22AD20FC0032FF42 /* commentsViewController.swift */,
+				F8EB34F922ACEFD10032FF42 /* commentTableViewCell.swift */,
+				F8EB34FA22ACEFD10032FF42 /* commentTableViewCell.xib */,
+			);
+			path = comment.Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,9 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EB34FE22AD20FC0032FF42 /* commentsViewController.swift in Sources */,
 				F8807A0622A7634400126D7B /* PostViewController.swift in Sources */,
 				F82DF66122A8A27100CB3F65 /* PostData.swift in Sources */,
 				F8807A0022A7631300126D7B /* LoginViewController.swift in Sources */,
+				F8EB350022AE060F0032FF42 /* CommentAllViewController.swift in Sources */,
 				F8EB34FB22ACEFD10032FF42 /* commentTableViewCell.swift in Sources */,
 				F88079F022A7624B00126D7B /* ViewController.swift in Sources */,
 				F88079EE22A7624B00126D7B /* AppDelegate.swift in Sources */,
